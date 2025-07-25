@@ -3,59 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Harshitha.B - Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color:#C79A8A;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #C79A8A 0%, #F3D2C7 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
         header {
-            background-color: #8D6F64;
+            background: linear-gradient(135deg, #8D6F64 0%, #6B5048 100%);
             color: #fff;
-            padding: 1rem;
+            padding: 2rem 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #F3D2C7;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .profile-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-tagline {
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
         main {
-            padding: 2rem;
+            padding: 3rem 0;
         }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
         .card {
-            background-color: #F3D2C7;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 1rem;
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h2 {
+            color: #8D6F64;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #F3D2C7;
+            padding-bottom: 0.5rem;
+        }
+        
+        .card h3 {
+            color: #6B5048;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(141, 111, 100, 0.1);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .card li:before {
+            content: "▸";
+            color: #8D6F64;
+            position: absolute;
+            left: 0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-item {
+            background: #F3D2C7;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: #6B5048;
+            transition: background 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: #8D6F64;
+            color: white;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            background: #F3D2C7;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: #8D6F64;
+            color: white;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(243, 210, 199, 0.3);
+            border-radius: 8px;
+            border-left: 4px solid #8D6F64;
+        }
+        
+        .date {
+            color: #8D6F64;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
         footer {
             text-align: center;
-            padding: 1rem;
-            background-color: #8D6F64;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #8D6F64 0%, #6B5048 100%);
             color: #fff;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #F3D2C7;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-title {
+                font-size: 2rem;
+            }
+            
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://i.pinimg.com/736x/59/1f/11/591f11b7e3c06df6e8766f3edbe3549a.jpg" height=200px weidth=200px>
-        <h1>Welcome to My Portfolio</h1>
+        <div class="container">
+            <img src="https://i.pinimg.com/736x/59/1f/11/591f11b7e3c06df6e8766f3edbe3549a.jpg" alt="Harshitha.B" class="profile-image">
+            <h1 class="profile-title">Harshitha.B</h1>
+            <p class="profile-subtitle">Creative Professional & Developer</p>
+            <p class="profile-tagline">"Bringing creativity and technology together"</p>
+        </div>
     </header>
+    
     <main>
-        <section id="about" class="card">
-            <h2>Name</h2>
-            <p>My name is Harshitha.B</p>
-        </section>
-        <section id="hobbies" class="card">
-            <h2>Hobbies</h2>
-            <p>Some of my hobbies include:</p>
-            <ul>
-                <li>Drawing</li>
-                <li>Dancing</li>
-                <li>Scrolling reels</li>
-            </ul>
-        </section>
+        <div class="container">
+            <div class="profile-grid">
+                <section class="card">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Harshitha.B, a passionate creative professional with a love for both artistic expression and technology. I believe in the power of combining creativity with technical skills to create meaningful and impactful work.</p>
+                    <p>My journey spans across various creative domains, and I'm always eager to learn new skills and take on exciting challenges. I enjoy bringing ideas to life through different mediums and approaches.</p>
+                </section>
+                
+                <section class="card">
+                    <h2>Skills & Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">Creative Design</div>
+                        <div class="skill-item">Digital Art</div>
+                        <div class="skill-item">Web Development</div>
+                        <div class="skill-item">UI/UX Design</div>
+                        <div class="skill-item">Photography</div>
+                        <div class="skill-item">Content Creation</div>
+                        <div class="skill-item">Project Management</div>
+                        <div class="skill-item">Problem Solving</div>
+                    </div>
+                </section>
+                
+                <section class="card">
+                    <h2>Hobbies & Interests</h2>
+                    <ul>
+                        <li>Drawing - Expressing creativity through various art forms and mediums</li>
+                        <li>Dancing - Exploring movement and rhythm as forms of artistic expression</li>
+                        <li>Digital Content - Staying updated with latest trends and creative content</li>
+                        <li>Photography - Capturing moments and telling stories through images</li>
+                        <li>Learning - Continuously expanding knowledge in technology and design</li>
+                        <li>Travel - Exploring new places and cultures for inspiration</li>
+                    </ul>
+                </section>
+                
+                <section class="card">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <h3>Bachelor's Degree</h3>
+                        <p class="date">2020 - 2024</p>
+                        <p>Focused on developing both technical and creative skills with emphasis on practical application and innovation.</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Creative Arts Certification</h3>
+                        <p class="date">2023</p>
+                        <p>Specialized training in digital arts, design principles, and creative methodologies.</p>
+                    </div>
+                </section>
+                
+                <section class="card">
+                    <h2>Experience</h2>
+                    <div class="experience-item">
+                        <h3>Creative Projects</h3>
+                        <p class="date">2023 - Present</p>
+                        <p>Working on various creative projects combining art, design, and technology to create engaging user experiences.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Freelance Design Work</h3>
+                        <p class="date">2022 - Present</p>
+                        <p>Providing creative design solutions for various clients, focusing on visual identity and digital presence.</p>
+                    </div>
+                </section>
+                
+                <section class="card">
+                    <h2>Contact Information</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>harshitha.b@email.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Location</h3>
+                            <p>Available for Remote Work</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Portfolio</h3>
+                            <p>View My Work</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
+    
     <footer>
-            </footer>
+        <div class="container">
+            <p>&copy; 2024 Harshitha.B. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" title="LinkedIn">LinkedIn</a>
+                <a href="#" title="GitHub">GitHub</a>
+                <a href="#" title="Instagram">Instagram</a>
+                <a href="#" title="Portfolio">Portfolio</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
